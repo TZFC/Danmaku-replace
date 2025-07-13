@@ -14,8 +14,8 @@
 (() => {
   /* ────────────────────────────── SETTINGS ────────────────────────────── */
   /* Write the same number of items in both arrays, 1-to-1 correspondence. */
-  const to_be_replace_list = ['包子', '舔jio', '男娘','蓝凉','蓝涼','之交','抖音','ytb', 'youtube'];  // ← originals
-  const target_list        = ['包了', '舔.jio', '侽娘','侽娘','侽娘','Z交','某音', 'YT', 'YT']; // ← replacements
+  const to_be_replace_list = ['包子', '舔jio',  '男娘','蓝凉','蓝涼','之交','抖音','y','m','p','r','e','o','x'];  // ← originals
+  const target_list        = ['包了', '舔.jio', '侽娘','侽娘','侽娘','Z交', '某音','у','м','р','г','е','о','х']; // ← replacements
   /* ────────────────────────── CHECK ────────────────────────── */
   if (to_be_replace_list.length !== target_list.length) {
     console.error('[Keyword Replacer] Array length mismatch!');
