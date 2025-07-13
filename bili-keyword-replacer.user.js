@@ -9,6 +9,7 @@
 // @match        https://live.bilibili.com/*
 // @run-at       document-start
 // @grant        none
+// @license      MIT
 // ==/UserScript==
 
 (() => {
