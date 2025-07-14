@@ -3,7 +3,7 @@
 // @namespace    https://github.com/TZFC/Danmaku-replace
 // @downloadURL  https://raw.githubusercontent.com/TZFC/Danmaku-replace/main/bili-keyword-replacer.user.js
 // @updateURL    https://raw.githubusercontent.com/TZFC/Danmaku-replace/main/bili-keyword-replacer.user.js
-// @version      2.2
+// @version      2.3
 // @description  Replaces chosen substrings in outgoing Bilibili live-chat messages before they are sent
 // @author       TZFC
 // @match        https://live.bilibili.com/*
@@ -15,8 +15,8 @@
 (() => {
   /* ────────────────────────────── SETTINGS ────────────────────────────── */
   /* Write the same number of items in both arrays, 1-to-1 correspondence. */
-  const to_be_replace_list = ['包子', '舔jio',  '男娘','蓝凉','蓝涼','之交','抖音','y','m','p','r','e','o','x','k','i', '川普', '64','89','扣扣','胖次'];  // ← originals
-  const target_list        = ['包了', '舔.jio', '侽娘','侽娘','侽娘','Z交', '某音','у','м','р','г','е','о','х','κ','і', '川晋', 'б4','ȣ9','扣.扣','胖㳄']; // ← replacements
+  const to_be_replace_list = ['包子', '舔jio',  '男娘','蓝凉','蓝涼','之交','抖音','y','m','p','r','e','o','x','k','i', '川普', '64','89','扣扣','胖次','我的名字'];  // ← originals
+  const target_list        = ['包了', '舔.jio', '侽娘','侽娘','侽娘','Z交', '某音','у','м','р','г','е','о','х','κ','і', '川晋', 'б4','ȣ9','扣.扣','胖㳄','我の名字']; // ← replacements
   /* ────────────────────────── CHECK ────────────────────────── */
   if (to_be_replace_list.length !== target_list.length) {
     console.error('[Keyword Replacer] Array length mismatch!');
