@@ -3,7 +3,7 @@
 // @namespace    https://github.com/TZFC/Danmaku-replace
 // @downloadURL  https://raw.githubusercontent.com/TZFC/Danmaku-replace/main/bili-keyword-replacer.user.js
 // @updateURL    https://raw.githubusercontent.com/TZFC/Danmaku-replace/main/bili-keyword-replacer.user.js
-// @version      2.7
+// @version      2.8
 // @description  Replaces chosen substrings in outgoing Bilibili live-chat messages before they are sent
 // @author       TZFC
 // @match        https://live.bilibili.com/*
