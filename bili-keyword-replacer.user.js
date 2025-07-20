@@ -3,7 +3,7 @@
 // @namespace    https://github.com/TZFC/Danmaku-replace
 // @downloadURL  https://raw.githubusercontent.com/TZFC/Danmaku-replace/main/bili-keyword-replacer.user.js
 // @updateURL    https://raw.githubusercontent.com/TZFC/Danmaku-replace/main/bili-keyword-replacer.user.js
-// @version      3.0
+// @version      3.1
 // @description  Replaces chosen substrings in outgoing Bilibili live-chat messages before they are sent
 // @author       TZFC
 // @match        https://live.bilibili.com/*
@@ -34,7 +34,7 @@
   function transformMsg(str) {
   if (str.startsWith('!s ')) {
     const content = str.slice(3);
-    return '!s ' + content
+    return content
       .replace(/\s+/g, '♪')
       .replace(/([^a-zA-Z0-9])(?=[^a-zA-Z0-9])/g, '$1♪'); 
   }
