@@ -54,7 +54,7 @@
 
     if (str.startsWith('!d ')) {
       const content = str.slice(3);
-      const command = content.slice(1);
+      const command = content.slice(1).trim();
       if (command==='c') {
         DEFAULT_DECO_LEFT = '⚞';
         DEFAULT_DECO_RIGHT = '⚟';
