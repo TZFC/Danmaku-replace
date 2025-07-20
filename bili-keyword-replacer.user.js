@@ -3,7 +3,7 @@
 // @namespace    https://github.com/TZFC/Danmaku-replace
 // @downloadURL  https://raw.githubusercontent.com/TZFC/Danmaku-replace/main/bili-keyword-replacer.user.js
 // @updateURL    https://raw.githubusercontent.com/TZFC/Danmaku-replace/main/bili-keyword-replacer.user.js
-// @version      3.2
+// @version      3.3
 // @description  Replaces chosen substrings in outgoing Bilibili live-chat messages before they are sent
 // @author       TZFC
 // @match        https://live.bilibili.com/*
@@ -24,8 +24,8 @@
   }
 
   const SEND_PATH = '/msg/send';
-  var DEFAULT_DECO_LEFT = '';
-  var DEFAULT_DECO_RIGHT = '';
+  let DEFAULT_DECO_LEFT = '';
+  let DEFAULT_DECO_RIGHT = '';
 
   const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const pattern = new RegExp(
@@ -63,6 +63,7 @@
         DEFAULT_DECO_LEFT = '꧁';
         DEFAULT_DECO_RIGHT = '꧂';
       }
+      return '';
     }
   
     returned_content = returned_content.replace(pattern, m => {
