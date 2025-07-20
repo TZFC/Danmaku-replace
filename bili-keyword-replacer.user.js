@@ -3,7 +3,7 @@
 // @namespace    https://github.com/TZFC/Danmaku-replace
 // @downloadURL  https://raw.githubusercontent.com/TZFC/Danmaku-replace/main/bili-keyword-replacer.user.js
 // @updateURL    https://raw.githubusercontent.com/TZFC/Danmaku-replace/main/bili-keyword-replacer.user.js
-// @version      3.5
+// @version      3.6
 // @description  Replaces chosen substrings in outgoing Bilibili live-chat messages before they are sent
 // @author       TZFC
 // @match        https://live.bilibili.com/*
@@ -69,6 +69,7 @@
       }
       localStorage.setItem('deco_left', DEFAULT_DECO_LEFT);
       localStorage.setItem('deco_right', DEFAULT_DECO_RIGHT);
+      console.log('Updated using deco:', DEFAULT_DECO_LEFT, DEFAULT_DECO_RIGHT);
       return '';
     }
   
@@ -77,6 +78,7 @@
       return target_list[idx];
     });
 
+    console.log('Using deco:', DEFAULT_DECO_LEFT, DEFAULT_DECO_RIGHT);
     return DEFAULT_DECO_LEFT + returned_content + DEFAULT_DECO_RIGHT;
 }
 
