@@ -3,7 +3,7 @@
 // @namespace    https://github.com/TZFC/Danmaku-replace
 // @downloadURL  https://raw.githubusercontent.com/TZFC/Danmaku-replace/main/bili-keyword-replacer.user.js
 // @updateURL    https://raw.githubusercontent.com/TZFC/Danmaku-replace/main/bili-keyword-replacer.user.js
-// @version      3.1
+// @version      3.2
 // @description  Replaces chosen substrings in outgoing Bilibili live-chat messages before they are sent
 // @author       TZFC
 // @match        https://live.bilibili.com/*
@@ -24,6 +24,8 @@
   }
 
   const SEND_PATH = '/msg/send';
+  var DEFAULT_DECO_LEFT = '';
+  var DEFAULT_DECO_RIGHT = '';
 
   const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const pattern = new RegExp(
@@ -32,27 +34,43 @@
   );
 
   function transformMsg(str) {
-  if (str.startsWith('#s ')) {
-    const content = str.slice(3);
-    return content
-      .replace(/\s+/g, '♪')
-      .replace(/([^a-zA-Z0-9])(?=[^a-zA-Z0-9])/g, '$1♪'); 
-  }
+    var returned_content = str;
+    if (str.startsWith('#s ')) {
+      const content = str.slice(3);
+      returned_content = content
+        .replace(/\s+/g, '♫')
+        .replace(/([^a-zA-Z0-9])(?=[^a-zA-Z0-9])/g, '$1♪'); 
+    }
+  
+    if (str.startsWith('#c ')) {
+      const content = str.slice(3);
+      returned_content = '⚞'+content+'⚟'; 
+    }
+  
+    if (str.startsWith('#f ')) {
+      const content = str.slice(3);
+      returned_content = '꧁'+content+'꧂'; 
+    }
 
-  if (str.startsWith('#c ')) {
-    const content = str.slice(3);
-    return '⚞'+content+'⚟'; 
-  }
+    if (str.startsWith('!d ')) {
+      const content = str.slice(3);
+      const command = content.slice(1);
+      if (command==='c') {
+        DEFAULT_DECO_LEFT = '⚞';
+        DEFAULT_DECO_RIGHT = '⚟';
+      }
+      if (command==='f') {
+        DEFAULT_DECO_LEFT = '꧁';
+        DEFAULT_DECO_RIGHT = '꧂';
+      }
+    }
+  
+    returned_content = returned_content.replace(pattern, m => {
+      const idx = to_be_replace_list.findIndex(src => src === m);
+      return target_list[idx];
+    });
 
-  if (str.startsWith('#f ')) {
-    const content = str.slice(3);
-    return '꧁'+content+'꧂'; 
-  }
-
-  return str.replace(pattern, m => {
-    const idx = to_be_replace_list.findIndex(src => src === m);
-    return target_list[idx];
-  });
+    return DEFAULT_DECO_LEFT + returned_content + DEFAULT_DECO_RIGHT;
 }
 
 
