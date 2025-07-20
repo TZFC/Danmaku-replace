@@ -3,7 +3,7 @@
 // @namespace    https://github.com/TZFC/Danmaku-replace
 // @downloadURL  https://raw.githubusercontent.com/TZFC/Danmaku-replace/main/bili-keyword-replacer.user.js
 // @updateURL    https://raw.githubusercontent.com/TZFC/Danmaku-replace/main/bili-keyword-replacer.user.js
-// @version      3.4
+// @version      3.5
 // @description  Replaces chosen substrings in outgoing Bilibili live-chat messages before they are sent
 // @author       TZFC
 // @match        https://live.bilibili.com/*
@@ -24,8 +24,8 @@
   }
 
   const SEND_PATH = '/msg/send';
-  let DEFAULT_DECO_LEFT = '';
-  let DEFAULT_DECO_RIGHT = '';
+  let DEFAULT_DECO_LEFT = localStorage.getItem('deco_left') || '';
+  let DEFAULT_DECO_RIGHT = localStorage.getItem('deco_right') || '';
 
   const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const pattern = new RegExp(
@@ -63,6 +63,12 @@
         DEFAULT_DECO_LEFT = '꧁';
         DEFAULT_DECO_RIGHT = '꧂';
       }
+      if (command==='x') {
+        DEFAULT_DECO_LEFT = '';
+        DEFAULT_DECO_RIGHT = '';
+      }
+      localStorage.setItem('deco_left', DEFAULT_DECO_LEFT);
+      localStorage.setItem('deco_right', DEFAULT_DECO_RIGHT);
       return '';
     }
   
