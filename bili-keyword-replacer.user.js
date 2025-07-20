@@ -32,11 +32,21 @@
   );
 
   function transformMsg(str) {
-  if (str.startsWith('!s ')) {
+  if (str.startsWith('#s ')) {
     const content = str.slice(3);
     return content
       .replace(/\s+/g, '♪')
       .replace(/([^a-zA-Z0-9])(?=[^a-zA-Z0-9])/g, '$1♪'); 
+  }
+
+  if (str.startsWith('#c ')) {
+    const content = str.slice(3);
+    return '⚞'+content+'⚟'; 
+  }
+
+  if (str.startsWith('#f ')) {
+    const content = str.slice(3);
+    return '꧁'+content+'꧂'; 
   }
 
   return str.replace(pattern, m => {
