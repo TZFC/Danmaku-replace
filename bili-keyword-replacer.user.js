@@ -3,7 +3,7 @@
 // @namespace    https://github.com/TZFC/Danmaku-replace
 // @downloadURL  https://raw.githubusercontent.com/TZFC/Danmaku-replace/main/bili-keyword-replacer.user.js
 // @updateURL    https://raw.githubusercontent.com/TZFC/Danmaku-replace/main/bili-keyword-replacer.user.js
-// @version      2.10
+// @version      3.0
 // @description  Replaces chosen substrings in outgoing Bilibili live-chat messages before they are sent
 // @author       TZFC
 // @match        https://live.bilibili.com/*
@@ -32,14 +32,19 @@
   );
 
   function transformMsg(str) {
-    return str.replace(pattern, m => {
-      const idx = to_be_replace_list
-        .findIndex(src =>
-          src === m
-        );
-      return target_list[idx];
-    });
+  if (str.startsWith('!s ')) {
+    const content = str.slice(3);
+    return '!s ' + content
+      .replace(/\s+/g, '♪')
+      .replace(/([^a-zA-Z0-9])(?=[^a-zA-Z0-9])/g, '$1♪'); 
   }
+
+  return str.replace(pattern, m => {
+    const idx = to_be_replace_list.findIndex(src => src === m);
+    return target_list[idx];
+  });
+}
+
 
   function sameEndpoint(url) {
     try { return new URL(url, location.origin).pathname.endsWith(SEND_PATH); }
