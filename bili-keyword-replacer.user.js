@@ -9,7 +9,7 @@
 // @description:zh-CN    在发送前替换哔哩哔哩直播弹幕中的指定字符串。
 // @author               TZFC
 // @match                https://live.bilibili.com/*
-// @icon         https://www.bilibili.com/favicon.ico
+// @icon                 https://www.bilibili.com/favicon.ico
 // @run-at               document-start
 // @grant                none
 // @license              GPL-3.0
