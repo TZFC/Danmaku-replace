@@ -1,16 +1,19 @@
 // ==UserScript==
-// @name         Bili Keyword Replacer (Optimized)
-// @namespace    https://github.com/TZFC/Danmaku-replace
-// @downloadURL  https://raw.githubusercontent.com/TZFC/Danmaku-replace/main/bili-keyword-replacer.user.js
-// @updateURL    https://raw.githubusercontent.com/TZFC/Danmaku-replace/main/bili-keyword-replacer.user.js
-// @version      4.7
-// @description  Replaces chosen substrings in outgoing Bilibili live-chat messages before they are sent
-// @author       TZFC
-// @match        https://live.bilibili.com/*
-// @run-at       document-start
-// @grant        none
-// @license      MIT
+// @name                 Danmaku replace
+// @name:zh-CN           弹幕替换器
+// @namespace            https://github.com/TZFC/Danmaku-replace
+// @downloadURL          https://raw.githubusercontent.com/TZFC/Danmaku-replace/main/bili-keyword-replacer.user.js
+// @updateURL            https://raw.githubusercontent.com/TZFC/Danmaku-replace/main/bili-keyword-replacer.user.js
+// @version              4.7
+// @description          Replace chosen substrings in outgoing Bilibili live-chat messages before they are sent.
+// @description:zh-CN    在发送前替换哔哩哔哩直播弹幕中的指定字符串。
+// @author               TZFC
+// @match                https://live.bilibili.com/*
+// @run-at               document-start
+// @grant                none
+// @license              GPL-3.0
 // ==/UserScript==
+
 
 (() => {
   /* ────────────────────────────── SETTINGS ────────────────────────────── */
