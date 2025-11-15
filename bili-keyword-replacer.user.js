@@ -4,7 +4,7 @@
 // @namespace            https://github.com/TZFC/Danmaku-replace
 // @downloadURL          https://raw.githubusercontent.com/TZFC/Danmaku-replace/main/bili-keyword-replacer.user.js
 // @updateURL            https://raw.githubusercontent.com/TZFC/Danmaku-replace/main/bili-keyword-replacer.user.js
-// @version              5.0
+// @version              5.1
 // @description          Replace chosen substrings in outgoing Bilibili live-chat messages before they are sent.
 // @description:zh-CN    在发送前替换哔哩哔哩直播弹幕中的指定字符串。
 // @author               TZFC
